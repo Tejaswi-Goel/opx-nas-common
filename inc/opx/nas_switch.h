@@ -126,6 +126,12 @@ t_std_error nas_get_platform_base_mac_address(hal_mac_addr_t *mac_base);
 bool nas_switch_get_fc_supported(void);
 
 /**
+ * Get multicast vlan/port lookup config from switch.xml config file.
+ * @return returns true if its enabled, otherwise false
+ */
+bool nas_switch_get_l2mc_vlan_port_lookup_enabled (void);
+
+/**
  * returns the hw_info of NPU read from the switch.xml file.
  * @return hw_info contains NPU's Identification and/or its capabilities in the string format.
  * @param   Switch Id
@@ -150,6 +156,27 @@ uint32_t nas_switch_get_cpu_port_id(nas_switch_id_t);
  * @return True id the OS event is required, false otherwise.
  */
 bool nas_switch_get_os_event_flag();
+
+/**
+ * @brief   Returns the indication of whether the SWITCH configuration file 
+ *          indicates resilient hashing is supported for ECMP.
+ *          If resilient hashing is supported, additional SAI attributes
+ *          are configured during ECMP path creation.
+ * @param   None
+ * @return  True (boolean) if resilient hash is supported for ECMP
+ */
+bool nas_switch_resilient_hash_ecmp_supported(void);
+
+/**
+ * @brief   Returns the indication of whether the SWITCH configuration file 
+ *          indicates resilient hashing is supported for LAG.
+ *          If resilient hashing is supported, additional SAI attributes
+ *          are configured during LAG creation.
+ * @param   None
+ * @return  True (boolean) if resilient hash is supported for LAG
+ */
+bool nas_switch_resilient_hash_lag_supported(void);
+
 /**
 * \}
 */

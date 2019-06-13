@@ -65,6 +65,9 @@ TEST(ndi_obj_id_map_test, c_api) {
     EXPECT_TRUE (nas_ndi_obj_id_table_get_id (handle, 49, &ndi_id));
     EXPECT_TRUE (ndi_id == 4);
     EXPECT_FALSE (nas_ndi_obj_id_table_get_id (handle, 48, &ndi_id));
+    cps_api_object_delete(cps_obj);
+    nas_ndi_obj_id_table_delete(handle);
+    nas_ndi_obj_id_table_delete(handle2);
 }
 
 int main(int argc, char **argv) {
